@@ -1,0 +1,31 @@
+{
+  "name": "angular-lazy-render",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huanz/angular-lazy-render"
+  },
+  "author": {
+    "name": "bukas",
+    "email": "yhz1219@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular4",
+    "lazy"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huanz/angular-lazy-render/issues"
+  },
+  "main": "angular-lazy-render.umd.js",
+  "module": "angular-lazy-render.js",
+  "jsnext:main": "angular-lazy-render.js",
+  "typings": "angular-lazy-render.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
