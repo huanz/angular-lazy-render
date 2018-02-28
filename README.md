@@ -16,10 +16,9 @@ Once you have installed, you can import in your Angular `AppModule`:
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-
-// Import your library
 import { LazyRenderModule } from 'angular-lazy-render';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,7 @@ export class AppModule { }
 </lazy-page>
 ```
 
-`index`: make the block index which will first to render
+`index`: mark the block index which will first to render
 
 ## Development
 
