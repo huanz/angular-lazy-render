@@ -8,7 +8,7 @@ import { LazyBlockComponent } from './lazy-block.component';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LazyPageComponent implements OnChanges, AfterContentInit {
-    @Input() index: number = 0;
+    @Input() index = 0;
     @ContentChildren(LazyBlockComponent, { descendants: true }) blocks: QueryList<LazyBlockComponent>;
     constructor() {}
     ngOnChanges(changes: { index: SimpleChange }) {
@@ -26,9 +26,9 @@ export class LazyPageComponent implements OnChanges, AfterContentInit {
         }
     }
     render() {
-        let child = this.blocks.find(child => !child.isRender);
-        if (child) {
-            child.render();
+        let block = this.blocks.find(item => !item.isRender);
+        if (block) {
+            block.render();
         }
     }
 }

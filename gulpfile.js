@@ -51,7 +51,7 @@ gulp.task('inline-resources', function () {
  *    As of Angular 5, ngc accepts an array and no longer returns a promise.
  */
 gulp.task('ngc', function () {
-  ngc([ '--project', `${tmpFolder}/tsconfig.es5.json` ]);
+  ngc({project: `${tmpFolder}/tsconfig.es5.json`});
   return Promise.resolve()
 });
 

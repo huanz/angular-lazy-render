@@ -11,7 +11,7 @@ import { LazyPageComponent } from './lazy-page.component';
 })
 export class LazyBlockComponent {
     page: LazyPageComponent;
-    isRender: boolean = false;
+    isRender = false;
     @ViewChild('tpl') tplRef: TemplateRef<any>;
     @ViewChild('tpl', { read: ViewContainerRef }) tplVcRef: ViewContainerRef;
     constructor(
