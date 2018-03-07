@@ -5,8 +5,7 @@ var gulp = require('gulp'),
   rollup = require('gulp-rollup'),
   rename = require('gulp-rename'),
   fs = require('fs-extra'),
-  runSequence = require('run-sequence'),
-  inlineResources = require('./tools/gulp/inline-resources');
+  runSequence = require('run-sequence');
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
@@ -32,15 +31,6 @@ gulp.task('clean:dist', function () {
 gulp.task('copy:source', function () {
   return gulp.src([`${srcFolder}/**/*`, `!${srcFolder}/node_modules`])
     .pipe(gulp.dest(tmpFolder));
-});
-
-/**
- * 3. Inline template (.html) and style (.css) files into the the component .ts files.
- *    We do this on the /.tmp folder to avoid editing the original /src files
- */
-gulp.task('inline-resources', function () {
-  return Promise.resolve()
-    .then(() => inlineResources(tmpFolder));
 });
 
 
@@ -86,6 +76,7 @@ gulp.task('rollup:fesm', function () {
         format: 'es'
       }
     }))
+    .pipe(rename('angular-lazy-render.js'))
     .pipe(gulp.dest(distFolder));
 });
 
@@ -180,7 +171,6 @@ gulp.task('compile', function () {
   runSequence(
     'clean:dist',
     'copy:source',
-    'inline-resources',
     'ngc',
     'rollup:fesm',
     'rollup:umd',

@@ -1,11 +1,11 @@
-# angular-lazy-render
+# angular-lazy-render [![angular-lazy-render](https://img.shields.io/npm/v/angular-lazy-render.svg)](https://www.npmjs.com/package/angular-lazy-render)
+
+renderng page by block
 
 ## Installation
 
-To install this library, run:
-
 ```bash
-$ npm install angular-lazy-render --save
+npm install angular-lazy-render --save
 ```
 
 ## Usage
@@ -34,19 +34,30 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
+
+wrap your page with `<lazy-page>`, and then block your page, wrap each page block with `<lazy-block>`
+
+
 ```html
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
 <lazy-page index="1">
-    <lazy-block>section-0</lazy-block>
-    <lazy-block>section-1 first render</lazy-block>
-    <lazy-block>section-2</lazy-block>
+    <lazy-block>
+        section-0<h1>{{title}}</h1>
+    </lazy-block>
+    <section>
+        <lazy-block>
+            section-1 first render
+        </lazy-block>
+        <lazy-block>
+            section-2
+        </lazy-block>
+    </section>
+    <lazy-block>
+        <footer>section-3</footer>
+    </lazy-block>
 </lazy-page>
 ```
 
-`index`: mark the block index which will first to render
+`index`: mark the first rendering block, default `0`
 
 ## Development
 
