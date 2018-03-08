@@ -5,7 +5,8 @@ var gulp = require('gulp'),
   rollup = require('gulp-rollup'),
   rename = require('gulp-rename'),
   fs = require('fs-extra'),
-  runSequence = require('run-sequence');
+  runSequence = require('run-sequence'),
+  uglify = require('rollup-plugin-uglify');
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
@@ -74,7 +75,10 @@ gulp.task('rollup:fesm', function () {
       // See "format" in https://rollupjs.org/#core-functionality
       output: {
         format: 'es'
-      }
+      },
+      plugins: [
+        uglify()
+      ]
     }))
     .pipe(rename('angular-lazy-render.js'))
     .pipe(gulp.dest(distFolder));
@@ -120,7 +124,11 @@ gulp.task('rollup:umd', function () {
         globals: {
           '@angular/core': 'ng.core'
         }
-      }
+      },
+
+      plugins: [
+        uglify()
+      ]
 
     }))
     .pipe(rename('angular-lazy-render.umd.js'))
