@@ -20,9 +20,7 @@
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
-    "skipTemplateCodegen": true,
-    "flatModuleOutFile": "angular-lazy-render.js",
-    "flatModuleId": "angular-lazy-render"
+    "skipTemplateCodegen": true
   },
   "files": [
     "./index.ts"
