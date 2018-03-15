@@ -23,6 +23,7 @@
   "module": "angular-lazy-render.js",
   "jsnext:main": "angular-lazy-render.js",
   "typings": "angular-lazy-render.d.ts",
+  "metadata": "angular-lazy-render.metadata.json",
   "peerDependencies": {
     "@angular/core": "^4.0.0",
     "rxjs": "^5.1.0",
